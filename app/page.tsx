@@ -3,11 +3,14 @@ import { BooksGrid } from '@/components/grid';
 import { BookPagination } from '@/components/book-pagination';
 import { fetchBooksWithPagination } from '@/lib/data';
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: { q?: string; author?: string | string[]; page?: string };
+export default async function Page(props: {
+  searchParams: Promise<{
+    q?: string;
+    author?: string | string[];
+    page?: string;
+  }>;
 }) {
+  const searchParams = await props.searchParams;
   const { books, pagination } = await fetchBooksWithPagination(searchParams);
 
   return (
