@@ -1,6 +1,6 @@
 # 📚 next-15-50k-books
 
-> Browse a 50,000-book library with instant search and author filtering — Next.js 15, React 19, Drizzle, and Neon Postgres.
+> Browse a 50,000-book library with instant search and author filtering, built on Next.js 15, React 19, Drizzle, and Neon Postgres.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15_canary-000000?logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-19_RC-61dafb?logo=react)
@@ -11,16 +11,16 @@
 
 ### 🚀 [Try it live →](https://next-15-50k-books.vercel.app)
 
-A book-inventory playground for the bleeding edge of the React/Next.js stack. The dataset (`scripts/books.csv`, ~50k rows) is loaded into Neon Postgres, then served through React Server Components with streaming Suspense. Search stays snappy thanks to a `pg_trgm` GIN index and Postgres `unaccent`, while a custom backpressure hook keeps the UI smooth as you type.
+A book-inventory playground built on the newest React and Next.js releases. The dataset (`scripts/books.csv`, ~50k rows) is loaded into Neon Postgres, then served through React Server Components with streaming Suspense. Search stays snappy thanks to a `pg_trgm` GIN index and Postgres `unaccent`, while a custom backpressure hook keeps the UI smooth as you type.
 
 ## ✨ Features
 
-- **Streaming RSC pagination** — server components fetch, paginate, and stream results (30 per page) via Suspense.
-- **Accent-insensitive search** — `lower(unaccent(title)) LIKE …` powered by a Postgres trigram GIN index.
-- **Author filter sidebar** — multi-select authors via URL search params; works with native `<Form>` (Next 15) for progressive enhancement.
-- **Backpressure-aware input** — `useBackpressure` + React 19's `use()` keep typing responsive while older requests are discarded.
-- **Edge-friendly data layer** — `@neondatabase/serverless` + Drizzle ORM over HTTP, no connection pool to babysit.
-- **Polished UI** — Tailwind, Radix primitives (shadcn-style), Geist font, Sonner toasts, and a welcome toast on first visit.
+- **Streaming RSC pagination**: server components fetch, paginate, and stream results (30 per page) via Suspense.
+- **Accent-insensitive search**: `lower(unaccent(title)) LIKE …` powered by a Postgres trigram GIN index.
+- **Author filter sidebar**: multi-select authors via URL search params; works with native `<Form>` (Next 15) for progressive enhancement.
+- **Backpressure-aware input**: `useBackpressure` + React 19's `use()` keep typing responsive while older requests are discarded.
+- **Edge-friendly data layer**: `@neondatabase/serverless` + Drizzle ORM over HTTP, with no connection pool to manage.
+- **UI**: Tailwind, Radix primitives (shadcn-style), Geist font, Sonner toasts, and a welcome toast on first visit.
 
 ## 🛠️ Tech Stack
 
